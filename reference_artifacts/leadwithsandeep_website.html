@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadWithSandeep | Leadership Architecture & Trust Partner to Scaling Founders</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        sage: {
+                            50: '#f4f6f4',
+                            100: '#e5ebe5',
+                            200: '#cbd7cb',
+                            600: '#436149',
+                            800: '#2b3f30',
+                            900: '#1b2a1f'
+                        },
+                        sand: {
+                            50: '#fdfcfb',
+                            100: '#f8f6f0',
+                            200: '#ede8dc',
+                            300: '#dfd7c4',
+                            800: '#4a4439'
+                        },
+                        terracotta: {
+                            500: '#c25e3d',
+                            600: '#a74829',
+                            700: '#8c3a1e'
+                        },
+                        charcoal: {
+                            800: '#26282b',
+                            900: '#18191b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #faf9f6;
+            color: #26282b;
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        }
+        .page-view {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .page-view.active {
+            display: block;
+            opacity: 1;
+        }
+        .editorial-quote {
+            position: relative;
+        }
+        .editorial-quote::before {
+            content: "“";
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            position: absolute;
+            left: -2rem;
+            top: -2.5rem;
+            opacity: 0.15;
+            color: #436149;
+            line-height: 1;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f6f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd7cb;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #436149;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen antialiased selection:bg-sage-200 selection:text-sage-900">
+
+    <!-- Top Announcement / Philosophy Ribbon -->
+    <div class="bg-sage-900 text-sand-100 text-xs sm:text-sm py-2 px-4 text-center font-medium border-b border-sage-800">
+        <span>A non-corporate, grounded partnership for founders moving from <em>effort</em> to <em>leadership architecture</em>.</span>
+        <button onclick="navigateTo('audit')" class="ml-2 text-amber-300 underline hover:text-white transition-colors">Take the 2-Min Founder Mirror</button>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#faf9f6]/95 backdrop-blur-md border-b border-sand-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Identity -->
+                <a href="#home" onclick="navigateTo('home')" class="group flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-sage-800 flex items-center justify-center text-white font-serif font-bold text-xl shadow-sm group-hover:bg-terracotta-600 transition-colors">
+                        S
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold font-serif tracking-tight text-charcoal-900 block leading-tight">LeadWithSandeep</span>
+                        <span class="text-[11px] uppercase tracking-widest text-sage-600 font-semibold block">Leadership Architecture</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <button onclick="navigateTo('home')" class="nav-item px-3.5 py-2 rounded-lg text-sm font-medium text-charcoal-800 hover:text-sage-800 hover:bg-sand-100 transition-all active-nav" data-page="home">The Gap</button>
+                    <button onclick="navigateTo('framework')" class="nav-item px-3.5 py-2 rounded-lg text-sm font-medium text-charcoal-800 hover:text-sage-800 hover:bg-sand-100 transition-all" data-page="framework">ACE Framework</button>
+                    <button onclick="navigateTo('audit')" class="nav-item px-3.5 py-2 rounded-lg text-sm font-medium text-charcoal-800 hover:text-sage-800 hover:bg-sand-100 transition-all" data-page="audit">Founder Mirror & Cost</button>
+                    <button onclick="navigateTo('about')" class="nav-item px-3.5 py-2 rounded-lg text-sm font-medium text-charcoal-800 hover:text-sage-800 hover:bg-sand-100 transition-all" data-page="about">Why Sandeep</button>
+                    <button onclick="navigateTo('contact')" class="nav-item px-3.5 py-2 rounded-lg text-sm font-medium text-charcoal-800 hover:text-sage-800 hover:bg-sand-100 transition-all" data-page="contact">Let's Talk</button>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <button onclick="navigateTo('contact')" class="bg-sage-800 hover:bg-sage-900 text-sand-50 px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 flex items-center space-x-2">
+                        <span>Initiate a Conversation</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-toggle-btn" onclick="toggleMobileMenu()" class="p-2.5 rounded-lg text-charcoal-900 hover:bg-sand-200" aria-label="Toggle Navigation">
+                        <i data-lucide="menu" id="menu-icon-bars" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-sand-200 bg-sand-50 px-4 pt-3 pb-6 space-y-2">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-charcoal-900 hover:bg-sand-200">The Problem & The Gap</button>
+            <button onclick="navigateTo('framework'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-charcoal-900 hover:bg-sand-200">The ACE Framework & Engagement</button>
+            <button onclick="navigateTo('audit'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-charcoal-900 hover:bg-sand-200">Founder Mirror & Cost Calculator</button>
+            <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium text-charcoal-900 hover:bg-sand-200">About Sandeep (20 Yrs Corporate)</button>
+            <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-base font-medium bg-sage-800 text-white hover:bg-sage-900">Book Founder Conversation</button>
+        </div>
+    </header>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="flex-grow">
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 1: HOME (THE CORE TRUTH & FOUNDER REALITY) -->
+        <!-- ========================================================================= -->
+        <section id="view-home" class="page-view active">
+            <!-- Hero Section -->
+            <div class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32 bg-gradient-to-b from-sand-100/60 to-[#faf9f6]">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    
+                    <div class="inline-flex items-center space-x-2 bg-sage-100 text-sage-800 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-8 border border-sage-200">
+                        <span class="w-2 h-2 rounded-full bg-sage-600 animate-pulse"></span>
+                        <span>For Early-Stage Founders Ready to Scale Beyond 0 → 1</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-charcoal-900 leading-[1.18] tracking-tight mb-8 max-w-4xl mx-auto">
+                        I help founders see what their team sees — so you lead for <span class="italic font-normal text-terracotta-600 underline decoration-sand-300 decoration-wavy underline-offset-8">real ownership</span>, not just compliance.
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-charcoal-800/80 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+                        You're paying handsome compensation and hiring talented people, yet you’re still firefighting every operational detail. You can’t scale when you’re doing everyone’s thinking.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="navigateTo('audit')" class="w-full sm:w-auto bg-sage-800 hover:bg-sage-900 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center space-x-3">
+                            <i data-lucide="compass" class="w-5 h-5 text-sand-200"></i>
+                            <span>Examine The Invisible Gap</span>
+                        </button>
+                        <button onclick="navigateTo('contact')" class="w-full sm:w-auto bg-sand-200/70 hover:bg-sand-200 text-charcoal-900 font-semibold px-7 py-4 rounded-xl border border-sand-300 transition-all duration-200">
+                            Book an Exploratory Dialogue
+                        </button>
+                    </div>
+
+                    <!-- Grounding Micro-statement -->
+                    <div class="mt-12 flex items-center justify-center space-x-6 text-xs text-charcoal-800/60 font-medium">
+                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> No corporate jargon</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> No generic motivation lectures</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-sage-600"></i> Inside-out behavioural shift</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Core Dilemma: Side-by-Side Reality Check -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-bold tracking-widest uppercase text-terracotta-600">The Invisible Disconnect</span>
+                    <h2 class="text-3xl font-serif font-bold text-charcoal-900 mt-2">Why Your Company Stalls After Early Traction</h2>
+                    <p class="text-charcoal-800/70 text-base mt-3">
+                        When you were 5 people, passion bridged every gap. At 20, 50, or 100 people, <strong class="text-charcoal-900 font-medium">how you are experienced</strong> determines whether people own their outcomes or wait for orders.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    <!-- Column 1: Founder Experience -->
+                    <div class="bg-sand-100/70 border border-sand-300 rounded-2xl p-8 relative flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between pb-4 border-b border-sand-300/60 mb-6">
+                                <span class="text-xs font-bold uppercase tracking-wider text-sage-800">What You Experience As Founder</span>
+                                <span class="bg-sand-200 text-charcoal-800 text-xs px-2.5 py-1 rounded-md font-medium">The Frustration</span>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-start space-x-3 text-sm text-charcoal-800">
+                                    <div class="p-1 bg-red-100 text-red-600 rounded mt-0.5"><i data-lucide="alert-circle" class="w-4 h-4"></i></div>
+                                    <span><strong>Complete lack of self-drive:</strong> Decisions wait on your desk even though you hired experienced leaders.</span>
+                                </li>
+                                <li class="flex items-start space-x-3 text-sm text-charcoal-800">
+                                    <div class="p-1 bg-red-100 text-red-600 rounded mt-0.5"><i data-lucide="alert-circle" class="w-4 h-4"></i></div>
+                                    <span><strong>Micro-involvement trap:</strong> Despite offering top-tier packages, you find yourself rewriting emails, pitches, and sheets.</span>
+                                </li>
+                                <li class="flex items-start space-x-3 text-sm text-charcoal-800">
+                                    <div class="p-1 bg-red-100 text-red-600 rounded mt-0.5"><i data-lucide="alert-circle" class="w-4 h-4"></i></div>
+                                    <span><strong>Zero strategic headspace:</strong> You spend 80% of your calendar firefighting operational glitches rather than future expansion.</span>
+                                </li>
+                                <li class="flex items-start space-x-3 text-sm text-charcoal-800">
+                                    <div class="p-1 bg-red-100 text-red-600 rounded mt-0.5"><i data-lucide="alert-circle" class="w-4 h-4"></i></div>
+                                    <span><strong>Silence in group meetings:</strong> You ask for new ideas, and you get respectful nods, followed by deafening compliance.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-sand-300/60 text-xs text-charcoal-800/70 italic">
+                            Common false diagnosis: "I need to hire senior people or run a weekend team-building camp."
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Team Experience -->
+                    <div class="bg-sage-900 text-sand-50 rounded-2xl p-8 relative flex flex-col justify-between shadow-xl">
+                        <div>
+                            <div class="flex items-center justify-between pb-4 border-b border-sage-800 mb-6">
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-300">What Your Team Actually Feels</span>
+                                <span class="bg-sage-800 text-sand-200 text-xs px-2.5 py-1 rounded-md font-medium">The Silent Reality</span>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-start space-x-3 text-sm text-sand-100">
+                                    <div class="p-1 bg-sage-800 text-amber-300 rounded mt-0.5"><i data-lucide="eye" class="w-4 h-4"></i></div>
+                                    <span><strong>Fear of making mistakes:</strong> If trying something novel risks public criticism or second-guessing, playing it safe is survival.</span>
+                                </li>
+                                <li class="flex items-start space-x-3 text-sm text-sand-100">
+                                    <div class="p-1 bg-sage-800 text-amber-300 rounded mt-0.5"><i data-lucide="eye" class="w-4 h-4"></i></div>
+                                    <span><strong>Psychological withdrawal:</strong> "Why bother spending weekend thinking of a strategy when the founder will discard it anyway?"</span>
+                                </li>
+                                <li class="flex items-start space-x-3 text-sm text-sand-100">
+                                    <div class="p-1 bg-sage-800 text-amber-300 rounded mt-0.5"><i data-lucide="eye" class="w-4 h-4"></i></div>
+                                    <span><strong>Burnout from unpredictability:</strong> The energy is consumed guessing the founder's mood rather than serving the customer.</span>
+                                </li>
+                                <li class="flex items-start space-x-3 text-sm text-sand-100">
+                                    <div class="p-1 bg-sage-800 text-amber-300 rounded mt-0.5"><i data-lucide="eye" class="w-4 h-4"></i></div>
+                                    <span><strong>Compliance over ownership:</strong> Doing exactly what was asked to avoid blame, rather than doing what the business needs.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-sage-800 text-xs text-sand-300/80 italic">
+                            The invisible gap between founder intent and team impact is where trust drains.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sandeep's Root Truth Statement -->
+                <div class="mt-12 bg-white border border-sand-300 rounded-xl p-8 max-w-4xl mx-auto text-center shadow-sm">
+                    <p class="text-lg md:text-xl font-serif text-charcoal-900 leading-relaxed">
+                        “The invisible bond holding the founder and the company together isn’t your equity, compensation structure, or OKR software. <strong class="text-terracotta-600">It is Trust.</strong> When leaders double-down on control, people retreat into compliance. You cannot scale a venture on compliance.”
+                    </p>
+                    <div class="mt-4 text-xs tracking-wider uppercase font-semibold text-sage-600">
+                        — Sandeep | Leadership Architecture
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Real Story Section: The Managing Director's Confession -->
+            <div class="bg-sand-100/60 border-y border-sand-200 py-16">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="editorial-quote pl-4 sm:pl-8">
+                        <span class="text-xs uppercase tracking-widest text-terracotta-600 font-bold block mb-2">A Moment of Realization</span>
+                        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-charcoal-900 mb-6">
+                            "I have tried the best Ivy League programs and top coaches. Nothing changed."
+                        </h3>
+                        <p class="text-charcoal-800/80 text-base leading-relaxed mb-4">
+                            Years ago, I was sitting across from the Managing Director of a large, growing enterprise. He was visibly exhausted. He admitted that over the years, his firm had sponsored executive leadership courses, hired renowned motivational speakers, and put executives through certifications. Yet his managers remained hesitant, friction stayed high, and he was still carrying the mental burden of every unit alone.
+                        </p>
+                        <p class="text-charcoal-800/80 text-base leading-relaxed mb-6">
+                            That conversation permanently clarified my mission. The problem isn’t that founders lack intellect or desire. The problem is that <span class="font-semibold text-charcoal-900">leadership behavior is treated as an academic badge or an external HR deliverable</span>, instead of an intimate, inside-out muscle practiced under real operational fire.
+                        </p>
+                        <div class="flex items-center space-x-4 pt-4 border-t border-sand-300/80">
+                            <div class="w-12 h-12 rounded-full bg-sage-800 flex items-center justify-center text-white font-serif font-bold text-lg">
+                                SK
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-charcoal-900">Sandeep</h4>
+                                <p class="text-xs text-charcoal-800/60">20 Years Corporate Leadership across Hierarchies & Geographies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Cost of Inaction: Financial & Operational -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-xs font-bold uppercase tracking-widest text-sage-800">The Balance Sheet Reality</span>
+                    <h2 class="text-3xl font-serif font-bold text-charcoal-900 mt-2">The Hidden Financial Tax of Toxic Friction</h2>
+                    <p class="text-charcoal-800/70 text-sm sm:text-base mt-2">
+                        Most leaders label culture as a "soft skill." But the downstream consequences manifest as hard financial line items that cripple unit economics.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-sand-200 hover:border-sage-600 transition-colors shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-sand-100 flex items-center justify-center text-terracotta-600 mb-4">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-charcoal-900 text-base mb-2">Paralyzed Decision Velocity</h4>
+                        <p class="text-xs text-charcoal-800/70 leading-relaxed">
+                            When mid-tier managers fear mistakes, every strategic call waits for founder sign-off. Market opportunities expire while memos bounce through bureaucratic loops.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border border-sand-200 hover:border-sage-600 transition-colors shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-sand-100 flex items-center justify-center text-terracotta-600 mb-4">
+                            <i data-lucide="user-x" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-charcoal-900 text-base mb-2">High Cost of Talent Churn</h4>
+                        <p class="text-xs text-charcoal-800/70 leading-relaxed">
+                            Replacing a key engineering lead or revenue driver costs 1.5x–2x their annual package in recruitment, onboarding downtime, and lost context.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border border-sand-200 hover:border-sage-600 transition-colors shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-sand-100 flex items-center justify-center text-terracotta-600 mb-4">
+                            <i data-lucide="brain" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-charcoal-900 text-base mb-2">Founder Mental Insolvency</h4>
+                        <p class="text-xs text-charcoal-800/70 leading-relaxed">
+                            When you are the bottleneck for every solution, your mental energy for capital raising, visionary partnerships, and strategic pivots evaporates.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <button onclick="navigateTo('audit')" class="inline-flex items-center space-x-2 text-sm font-semibold text-sage-800 hover:text-terracotta-600 transition-colors">
+                        <span>Calculate what friction might be costing your company</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Founder Quote & CTA Banner -->
+            <div class="bg-sage-900 text-sand-50 py-16">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h3 class="text-2xl sm:text-3xl font-serif font-bold mb-4">
+                        "The only place to start the change is self. Inside out."
+                    </h3>
+                    <p class="text-sand-200/80 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">
+                        Not more controls. Not more micromanagement. Not churning people. A 1-on-1 confidential partnership designed for self-aware founders ready to build genuine trust architecture.
+                    </p>
+                    <button onclick="navigateTo('framework')" class="bg-terracotta-600 hover:bg-terracotta-700 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-md">
+                        Explore The ACE Framework
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 2: ACE FRAMEWORK & ENGAGEMENT (SERVICE / WHAT & HOW) -->
+        <!-- ========================================================================= -->
+        <section id="view-framework" class="page-view">
+            <div class="bg-sand-100/60 py-16 border-b border-sand-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">The Trust-Architecture Model</span>
+                    <h1 class="text-3xl sm:text-5xl font-serif font-bold text-charcoal-900 mt-2 mb-4">The ACE Framework</h1>
+                    <p class="text-base sm:text-lg text-charcoal-800/80 max-w-2xl mx-auto">
+                        Leadership is not an intellectual concept. It is an ongoing behavioral muscle. The ACE Framework structures your evolution from a reactive operator into a trusted human architect.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Detailed 3 Stages Breakdown -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="space-y-12">
+                    
+                    <!-- Stage 1: Awareness -->
+                    <div class="bg-white rounded-2xl border border-sand-300 p-8 md:p-10 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-sage-50 rounded-bl-full -z-0"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start">
+                            <div class="md:w-1/4">
+                                <div class="w-14 h-14 rounded-2xl bg-sage-800 text-sand-50 flex items-center justify-center font-serif text-2xl font-bold mb-4 shadow">
+                                    01
+                                </div>
+                                <span class="text-xs uppercase font-bold tracking-widest text-sage-600 block">Phase One</span>
+                                <h3 class="text-2xl font-serif font-bold text-charcoal-900 mt-1">Awareness</h3>
+                                <p class="text-xs text-charcoal-800/60 mt-1">Seeing What Your Team Sees</p>
+                            </div>
+                            <div class="md:w-3/4 space-y-4">
+                                <p class="text-sm sm:text-base text-charcoal-800 leading-relaxed">
+                                    Most founders assume their team shares their exact context, passion, and risk appetite. In Phase 1, we conduct an honest, non-judgmental audit of how your everyday reactions, non-verbal cues, and feedback style are received on the ground.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                    <div class="bg-sand-50 p-4 rounded-xl border border-sand-200">
+                                        <h5 class="font-bold text-xs uppercase tracking-wide text-charcoal-900 mb-1 flex items-center gap-2">
+                                            <i data-lucide="crosshair" class="w-4 h-4 text-terracotta-600"></i> The Mirror Audit
+                                        </h5>
+                                        <p class="text-xs text-charcoal-800/70">Uncovering blind spots: Where is your anxiety or urgency translating into team paralysis or micromanagement?</p>
+                                    </div>
+                                    <div class="bg-sand-50 p-4 rounded-xl border border-sand-200">
+                                        <h5 class="font-bold text-xs uppercase tracking-wide text-charcoal-900 mb-1 flex items-center gap-2">
+                                            <i data-lucide="radio" class="w-4 h-4 text-terracotta-600"></i> Environmental Diagnosis
+                                        </h5>
+                                        <p class="text-xs text-charcoal-800/70">Evaluating psychological safety, meetings dynamics, and silent bottlenecks across your key direct reports.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2: Commitment -->
+                    <div class="bg-white rounded-2xl border border-sand-300 p-8 md:p-10 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -z-0"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start">
+                            <div class="md:w-1/4">
+                                <div class="w-14 h-14 rounded-2xl bg-terracotta-600 text-white flex items-center justify-center font-serif text-2xl font-bold mb-4 shadow">
+                                    02
+                                </div>
+                                <span class="text-xs uppercase font-bold tracking-widest text-terracotta-600 block">Phase Two</span>
+                                <h3 class="text-2xl font-serif font-bold text-charcoal-900 mt-1">Commitment</h3>
+                                <p class="text-xs text-charcoal-800/60 mt-1">The Courage to Shift Self-Behavior</p>
+                            </div>
+                            <div class="md:w-3/4 space-y-4">
+                                <p class="text-sm sm:text-base text-charcoal-800 leading-relaxed">
+                                    Awareness without ownership is just academic guilt. It is tempting to believe that "more control" worked from 0 to 1, so it must work from 1 to 10. In this phase, we establish clear founder commitments to let go of counterfeit controls and build mutual trust.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                    <div class="bg-sand-50 p-4 rounded-xl border border-sand-200">
+                                        <h5 class="font-bold text-xs uppercase tracking-wide text-charcoal-900 mb-1 flex items-center gap-2">
+                                            <i data-lucide="shield" class="w-4 h-4 text-sage-800"></i> Relinquishing Illusion of Control
+                                        </h5>
+                                        <p class="text-xs text-charcoal-800/70">Recognizing that closer monitoring produces compliance; deliberate trust builds true accountability and self-drive.</p>
+                                    </div>
+                                    <div class="bg-sand-50 p-4 rounded-xl border border-sand-200">
+                                        <h5 class="font-bold text-xs uppercase tracking-wide text-charcoal-900 mb-1 flex items-center gap-2">
+                                            <i data-lucide="file-check" class="w-4 h-4 text-sage-800"></i> The Trust Contract
+                                        </h5>
+                                        <p class="text-xs text-charcoal-800/70">Establishing personal leadership boundaries, delegation rules, and communication charters with key teams.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3: Evolve -->
+                    <div class="bg-white rounded-2xl border border-sand-300 p-8 md:p-10 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-sand-200 rounded-bl-full -z-0"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start">
+                            <div class="md:w-1/4">
+                                <div class="w-14 h-14 rounded-2xl bg-charcoal-900 text-sand-50 flex items-center justify-center font-serif text-2xl font-bold mb-4 shadow">
+                                    03
+                                </div>
+                                <span class="text-xs uppercase font-bold tracking-widest text-charcoal-800/70 block">Phase Three</span>
+                                <h3 class="text-2xl font-serif font-bold text-charcoal-900 mt-1">Evolve</h3>
+                                <p class="text-xs text-charcoal-800/60 mt-1">Practicing in Real Work Scenarios</p>
+                            </div>
+                            <div class="md:w-3/4 space-y-4">
+                                <p class="text-sm sm:text-base text-charcoal-800 leading-relaxed">
+                                    Leadership behavior is like going to the gym. It takes steady, repetitive practice under tension. We conduct real-time debriefs around critical conversations: difficult feedback sessions, quarterly reviews, handling mistakes without rage, and celebrating autonomy.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                    <div class="bg-sand-50 p-4 rounded-xl border border-sand-200">
+                                        <h5 class="font-bold text-xs uppercase tracking-wide text-charcoal-900 mb-1 flex items-center gap-2">
+                                            <i data-lucide="message-square" class="w-4 h-4 text-terracotta-600"></i> Difficult Conversations Lab
+                                        </h5>
+                                        <p class="text-xs text-charcoal-800/70">Preparing and deconstructing critical meetings, performance corrections, and conflict without toxicity.</p>
+                                    </div>
+                                    <div class="bg-sand-50 p-4 rounded-xl border border-sand-200">
+                                        <h5 class="font-bold text-xs uppercase tracking-wide text-charcoal-900 mb-1 flex items-center gap-2">
+                                            <i data-lucide="trending-up" class="w-4 h-4 text-terracotta-600"></i> Followership Alignment
+                                        </h5>
+                                        <p class="text-xs text-charcoal-800/70">Observing how the team's attitude and competence evolve when safe, high-expectation leadership is established.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- The Engagement Format Box -->
+                <div class="mt-16 bg-sage-50 border border-sage-200 rounded-2xl p-8 sm:p-10">
+                    <div class="max-w-3xl mx-auto">
+                        <div class="text-center mb-8">
+                            <span class="text-xs uppercase tracking-widest text-sage-800 font-bold">Structure & Format</span>
+                            <h3 class="text-2xl font-serif font-bold text-charcoal-900 mt-1">How We Work Together</h3>
+                            <p class="text-xs sm:text-sm text-charcoal-800/70 mt-2">
+                                A high-touch, strictly confidential 1:1 advisory engagement tailored directly to your current scaling stage.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <div class="bg-white p-5 rounded-xl border border-sand-200 shadow-sm">
+                                <div class="text-terracotta-600 font-serif font-bold text-2xl mb-1">Bi-Weekly</div>
+                                <div class="text-xs font-bold text-charcoal-900 uppercase tracking-wider mb-2">1:1 Deep Dives</div>
+                                <p class="text-xs text-charcoal-800/70">60-minute candid working sessions analyzing live founder scenarios, real team dynamics, and decision forks.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-sand-200 shadow-sm">
+                                <div class="text-terracotta-600 font-serif font-bold text-2xl mb-1">On-Demand</div>
+                                <div class="text-xs font-bold text-charcoal-900 uppercase tracking-wider mb-2">Critical Support</div>
+                                <p class="text-xs text-charcoal-800/70">Direct access via secure channel for tense moments before critical executive meetings or conflict resolutions.</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-xl border border-sand-200 shadow-sm">
+                                <div class="text-terracotta-600 font-serif font-bold text-2xl mb-1">Inside Out</div>
+                                <div class="text-xs font-bold text-charcoal-900 uppercase tracking-wider mb-2">No Gimmicks</div>
+                                <p class="text-xs text-charcoal-800/70">No standard slide decks or generic questionnaires. Everything is tailored to your real organization.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 text-center">
+                            <button onclick="navigateTo('contact')" class="bg-sage-800 hover:bg-sage-900 text-white font-semibold px-8 py-3.5 rounded-xl shadow transition-all">
+                                Check Availability For A Partnership
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 3: FOUNDER MIRROR & COST CALCULATOR (AUDIT) -->
+        <!-- ========================================================================= -->
+        <section id="view-audit" class="page-view">
+            <div class="bg-sand-100/60 py-16 border-b border-sand-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">Self-Diagnosis</span>
+                    <h1 class="text-3xl sm:text-5xl font-serif font-bold text-charcoal-900 mt-2 mb-4">The Founder Mirror & Cost Calculator</h1>
+                    <p class="text-base sm:text-lg text-charcoal-800/80 max-w-2xl mx-auto">
+                        Two diagnostic tools: Assess your invisible leadership blind spots in 60 seconds, and estimate the financial tax of workplace hesitation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+                
+                <!-- Tool 1: The 6-Question Founder Mirror -->
+                <div class="bg-white rounded-2xl border border-sand-300 p-6 sm:p-10 shadow-sm">
+                    <div class="border-b border-sand-200 pb-6 mb-8">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sage-800">Part 1</span>
+                        <h2 class="text-2xl font-serif font-bold text-charcoal-900 mt-1">The 60-Second Founder Reality Check</h2>
+                        <p class="text-sm text-charcoal-800/70 mt-1">Select the option that best reflects the day-to-day reality in your company right now.</p>
+                    </div>
+
+                    <form id="audit-form" class="space-y-6" onsubmit="event.preventDefault(); calculateAudit();">
+                        <!-- Question 1 -->
+                        <div class="p-4 rounded-xl bg-sand-50/70 border border-sand-200">
+                            <label class="block text-sm font-semibold text-charcoal-900 mb-2">1. When a key mistake occurs in customer delivery or product execution:</label>
+                            <div class="space-y-2 text-xs sm:text-sm text-charcoal-800">
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q1" value="0" class="text-sage-800 focus:ring-sage-600" checked>
+                                    <span>The team surfaces it immediately without fear, offers a solution, and we conduct a blameless post-mortem.</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q1" value="1" class="text-sage-800 focus:ring-sage-600">
+                                    <span>Mistakes are hidden or sugarcoated until the deadline fails, followed by tension and defensiveness.</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q1" value="2" class="text-sage-800 focus:ring-sage-600">
+                                    <span>I step in with anger, point out carelessness, and end up personally fixing it to ensure quality.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="p-4 rounded-xl bg-sand-50/70 border border-sand-200">
+                            <label class="block text-sm font-semibold text-charcoal-900 mb-2">2. How are operational decisions made when you take 3 days off?</label>
+                            <div class="space-y-2 text-xs sm:text-sm text-charcoal-800">
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q2" value="0" class="text-sage-800 focus:ring-sage-600" checked>
+                                    <span>The team proceeds confidently; work advances smoothly without urgent WhatsApp notifications.</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q2" value="1" class="text-sage-800 focus:ring-sage-600">
+                                    <span>Things slow down markedly. People wait for my return to approve relatively routine steps.</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q2" value="2" class="text-sage-800 focus:ring-sage-600">
+                                    <span>Everything halts. I am pinged hourly for approvals because no one wants to be blamed.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="p-4 rounded-xl bg-sand-50/70 border border-sand-200">
+                            <label class="block text-sm font-semibold text-charcoal-900 mb-2">3. What happens in leadership meetings when you invite open feedback on a project?</label>
+                            <div class="space-y-2 text-xs sm:text-sm text-charcoal-800">
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q3" value="0" class="text-sage-800 focus:ring-sage-600" checked>
+                                    <span>Passionate debate with junior and senior voices challenging assumptions respectfully.</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q3" value="1" class="text-sage-800 focus:ring-sage-600">
+                                    <span>Polite nods and silence until I speak, after which everyone simply aligns with my point of view.</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer p-2 rounded hover:bg-sand-100">
+                                    <input type="radio" name="q3" value="2" class="text-sage-800 focus:ring-sage-600">
+                                    <span>No one speaks up in the room, but whispers and frustration happen in private corridors after the call.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="text-center pt-4">
+                            <button type="submit" class="bg-sage-800 hover:bg-sage-900 text-white font-semibold px-8 py-3.5 rounded-xl shadow transition-all">
+                                Analyze My Leadership Climate
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Audit Results Display -->
+                    <div id="audit-result-box" class="hidden mt-8 p-6 rounded-xl border border-sand-300 bg-sand-100/50">
+                        <div class="flex items-start space-x-4">
+                            <div id="audit-icon-container" class="p-3 rounded-full bg-sage-800 text-white">
+                                <i data-lucide="info" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 id="audit-result-title" class="text-lg font-serif font-bold text-charcoal-900">Diagnosis</h3>
+                                <p id="audit-result-desc" class="text-sm text-charcoal-800/80 mt-1 leading-relaxed"></p>
+                                <div class="mt-4">
+                                    <button onclick="navigateTo('contact')" class="text-xs uppercase tracking-wider font-bold text-terracotta-600 hover:text-terracotta-700 underline">
+                                        Discuss this diagnostic confidentially with Sandeep &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 2: The Invisible Cost Calculator -->
+                <div class="bg-white rounded-2xl border border-sand-300 p-6 sm:p-10 shadow-sm">
+                    <div class="border-b border-sand-200 pb-6 mb-8">
+                        <span class="text-xs font-bold uppercase tracking-wider text-terracotta-600">Part 2</span>
+                        <h2 class="text-2xl font-serif font-bold text-charcoal-900 mt-1">The Invisible Friction Calculator</h2>
+                        <p class="text-sm text-charcoal-800/70 mt-1">
+                            Quantify how delayed approvals, hesitant execution, and founder micromanagement impact your operational burn.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1">Total Team Members</label>
+                                <input type="number" id="calc-team-size" value="18" min="3" max="250" class="w-full px-4 py-2.5 rounded-lg border border-sand-300 focus:outline-none focus:ring-2 focus:ring-sage-600 text-sm" oninput="updateCalculator()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1">Average Monthly Compensation / Person ($)</label>
+                                <input type="number" id="calc-avg-salary" value="4500" min="500" step="500" class="w-full px-4 py-2.5 rounded-lg border border-sand-300 focus:outline-none focus:ring-2 focus:ring-sage-600 text-sm" oninput="updateCalculator()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1">Founder Hours Spent Daily In Operations / Micro-Fixes</label>
+                                <input type="range" id="calc-founder-hours" min="1" max="8" value="3.5" step="0.5" class="w-full accent-sage-800 cursor-pointer" oninput="document.getElementById('hours-val').innerText = this.value; updateCalculator()">
+                                <div class="text-right text-xs text-charcoal-800/60 font-semibold mt-1"><span id="hours-val">3.5</span> hours/day</div>
+                            </div>
+                        </div>
+
+                        <!-- Calculation Output Panel -->
+                        <div class="bg-sage-900 text-sand-50 p-6 rounded-2xl border border-sage-800">
+                            <span class="text-xs uppercase font-bold tracking-widest text-amber-300">Estimated Annual Friction Tax</span>
+                            <div class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2 mb-2" id="calc-annual-cost">
+                                $113,400
+                            </div>
+                            <p class="text-xs text-sand-200/80 leading-relaxed mb-4">
+                                This estimated friction represents lost initiative (hesitation index: ~15%), wasted payroll waiting for founder approvals, and value squandered while the founder is doing $20/hr tasks instead of $1000/hr strategy.
+                            </p>
+                            <div class="pt-4 border-t border-sage-800/80 text-xs text-amber-200/90 font-medium">
+                                Real leadership behavior converts this silent leakage directly back into enterprise value.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 4: ABOUT SANDEEP (WHY HIM, CREDIBILITY, POSITIONING) -->
+        <!-- ========================================================================= -->
+        <section id="view-about" class="page-view">
+            <div class="bg-sand-100/60 py-16 border-b border-sand-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-sage-800">Background & Philosophy</span>
+                    <h1 class="text-3xl sm:text-5xl font-serif font-bold text-charcoal-900 mt-2 mb-4">Why Sandeep</h1>
+                    <p class="text-base sm:text-lg text-charcoal-800/80 max-w-2xl mx-auto">
+                        Two decades in the corporate trenches. No ivory-tower buzzwords, no savior complex. Just grounded, unvarnished insight into the human architecture of scaling organizations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <!-- Two Column Profile -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+                    
+                    <!-- Portrait & Stats Column -->
+                    <div class="md:col-span-5 space-y-6">
+                        <div class="bg-white p-6 rounded-2xl border border-sand-300 shadow-sm">
+                            <!-- Calm Silhouette / Placeholder Aesthetic -->
+                            <div class="w-full aspect-[4/5] bg-gradient-to-br from-sand-200 via-sage-100 to-sand-300 rounded-xl flex flex-col items-center justify-center p-6 text-center border border-sand-300">
+                                <div class="w-24 h-24 rounded-full bg-sage-800 text-white flex items-center justify-center font-serif text-3xl font-bold shadow-md mb-4">
+                                    SK
+                                </div>
+                                <h3 class="font-serif font-bold text-xl text-charcoal-900">Sandeep</h3>
+                                <p class="text-xs uppercase tracking-wider text-sage-600 font-semibold mt-1">Trust Architect & Founder Partner</p>
+                                <p class="text-xs text-charcoal-800/70 mt-3 italic max-w-xs">
+                                    "I am not here to change the world. I am here to help you build an environment where your team does their best work."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-6 border-t border-sand-200 space-y-3">
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-charcoal-800/60 font-medium">Corporate Track Record</span>
+                                    <span class="font-bold text-charcoal-900">20+ Years</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-charcoal-800/60 font-medium">Focus Demographic</span>
+                                    <span class="font-bold text-charcoal-900">Early-Stage Scaling Founders</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-charcoal-800/60 font-medium">Positioning</span>
+                                    <span class="font-bold text-charcoal-900">Non-Corporate & Grounded</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Philosophy Badge -->
+                        <div class="bg-sand-50 p-6 rounded-2xl border border-sand-200">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-terracotta-600 mb-2">The Unspoken Truth</h4>
+                            <p class="text-xs text-charcoal-800/80 leading-relaxed">
+                                Most business certifications cater to established enterprises with rigid hierarchies. But in an early-stage company, the founder's personal emotional state directly dictates the company's operating climate. That requires personal, tailored introspection.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Narrative & Experience Column -->
+                    <div class="md:col-span-7 space-y-6 text-charcoal-800">
+                        <div class="bg-white p-8 rounded-2xl border border-sand-300 shadow-sm space-y-4 leading-relaxed text-sm sm:text-base">
+                            <h3 class="text-2xl font-serif font-bold text-charcoal-900">
+                                Cutting Through The Leadership Industry Noise
+                            </h3>
+                            <p>
+                                Leadership principles are not rocket science. Ancient philosophical texts, mythological parables, and decades of modern research have outlined how trust works. The wisdom already exists.
+                            </p>
+                            <p>
+                                Yet for a busy founder running on 4 hours of sleep with payroll in two weeks, standard leadership advice feels completely divorced from reality. It comes wrapped in expensive consulting jargon, superficial motivational catchphrases, or academic frameworks designed for Fortune 500 boardrooms.
+                            </p>
+                            <p>
+                                <strong>Having spent two decades in corporate leadership across functions and regions,</strong> I have sat on both sides of the hierarchy. I have seen firsthand:
+                            </p>
+                            <ul class="space-y-2 pl-4 border-l-2 border-sage-600 text-xs sm:text-sm text-charcoal-900 font-medium">
+                                <li>• How a leader’s subtle micro-expression can freeze an entire room into fearful silence.</li>
+                                <li>• How hyper-control creates the exact lack of initiative that the leader complains about.</li>
+                                <li>• How talented professionals leave great products simply because the emotional environment is toxic.</li>
+                            </ul>
+                            <p>
+                                I work with founders who possess the humility to understand that their company cannot outgrow their own emotional maturity.
+                            </p>
+                        </div>
+
+                        <!-- Who I Work With / Who I Don't Box -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-sand-100/60 p-5 rounded-xl border border-sand-200">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-sage-800 mb-2 flex items-center gap-1.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-sage-600"></i> Good Fit For:
+                                </h4>
+                                <ul class="text-xs space-y-2 text-charcoal-800/80">
+                                    <li>• Founders moving past early traction who feel stuck in every operational detail.</li>
+                                    <li>• Leaders willing to look inward before blaming team competence.</li>
+                                    <li>• Those seeking calm, sustainable scale over ego and vanity metrics.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-sand-100/60 p-5 rounded-xl border border-sand-200">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-terracotta-600 mb-2 flex items-center gap-1.5">
+                                    <i data-lucide="x-circle" class="w-4 h-4 text-terracotta-600"></i> Not A Fit For:
+                                </h4>
+                                <ul class="text-xs space-y-2 text-charcoal-800/80">
+                                    <li>• Leaders looking for a savior to come and "fix their employees" for them.</li>
+                                    <li>• Those convinced that pressure, fear, and aggressive task-mastering are the only true motivators.</li>
+                                    <li>• Large bureaucracies with rigid politics unwilling to alter executive habits.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 text-right">
+                            <button onclick="navigateTo('contact')" class="inline-flex items-center space-x-2 text-sm font-semibold text-sage-800 hover:text-terracotta-600 transition-colors">
+                                <span>Read enough? Let’s have a candid discussion</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- VIEW 5: CONTACT / INITIATE CONVERSATION -->
+        <!-- ========================================================================= -->
+        <section id="view-contact" class="page-view">
+            <div class="bg-sand-100/60 py-16 border-b border-sand-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta-600">No Pitch. No Pressure.</span>
+                    <h1 class="text-3xl sm:text-5xl font-serif font-bold text-charcoal-900 mt-2 mb-4">Start With A Confidential Dialogue</h1>
+                    <p class="text-base sm:text-lg text-charcoal-800/80 max-w-2xl mx-auto">
+                        A focused 30-minute founder conversation. We will look candidly at your current organizational friction and see if an inside-out partnership makes sense.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-white rounded-2xl border border-sand-300 p-8 sm:p-12 shadow-sm">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1.5" for="name">Your Name *</label>
+                                <input type="text" id="name" required placeholder="e.g., Alex Mehta" class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-sage-600 text-sm bg-sand-50/50">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1.5" for="email">Work Email *</label>
+                                <input type="email" id="email" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-sage-600 text-sm bg-sand-50/50">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1.5" for="company">Company / Venture Name & Size</label>
+                                <input type="text" id="company" placeholder="e.g., NovaTech (25 team members)" class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-sage-600 text-sm bg-sand-50/50">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1.5" for="phone">Phone / WhatsApp (Optional)</label>
+                                <input type="text" id="phone" placeholder="+1 or +91..." class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-sage-600 text-sm bg-sand-50/50">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-charcoal-800 mb-1.5" for="challenge">What is the central operational or human friction you are facing right now?</label>
+                            <textarea id="challenge" rows="4" placeholder="e.g., I find myself double-checking everyone's work and my mid-level leads don't seem to take ownership when decisions arise..." class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-sage-600 text-sm bg-sand-50/50"></textarea>
+                        </div>
+
+                        <div class="p-4 bg-sand-100/50 rounded-xl border border-sand-200 text-xs text-charcoal-800/80 flex items-start space-x-3">
+                            <i data-lucide="lock" class="w-4 h-4 text-sage-800 mt-0.5 flex-shrink-0"></i>
+                            <span>All communications are treated with strict confidentiality. Sandeep works with a select number of founders simultaneously to maintain depth.</span>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full bg-sage-800 hover:bg-sage-900 text-white font-semibold py-4 rounded-xl shadow-md hover:shadow-lg transition-all text-sm tracking-wide">
+                                Send Message & Request 30-Min Exploratory Call
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Success State Display -->
+                    <div id="contact-success-state" class="hidden text-center py-10 space-y-4">
+                        <div class="w-16 h-16 bg-sage-100 text-sage-800 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i data-lucide="check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-charcoal-900">Thank you for reaching out.</h3>
+                        <p class="text-sm text-charcoal-800/80 max-w-md mx-auto leading-relaxed">
+                            Your message has reached Sandeep directly. He personally reviews every note and will respond within 24 hours to schedule an introductory exploratory session.
+                        </p>
+                        <button onclick="resetContactForm()" class="mt-4 text-xs font-bold uppercase tracking-wider text-terracotta-600 underline">
+                            Submit another note
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Informal Contact Alternative -->
+                <div class="mt-12 text-center text-xs text-charcoal-800/70 space-y-2">
+                    <p>Prefer direct email? Write to <strong class="text-charcoal-900 font-medium">connect@leadwithsandeep.com</strong></p>
+                    <p>Connect on LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-sage-800">Sandeep on LinkedIn</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal-900 text-sand-200 border-t border-charcoal-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-charcoal-800/80">
+                
+                <!-- Col 1: Identity -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-sage-800 flex items-center justify-center text-white font-serif font-bold text-base">
+                            S
+                        </div>
+                        <span class="text-lg font-bold font-serif text-white tracking-tight">LeadWithSandeep</span>
+                    </div>
+                    <p class="text-xs text-sand-300/70 max-w-sm leading-relaxed">
+                        A human architecture and trust advisory helping early-stage founders close the invisible gap between what they intend and how their team experiences them.
+                    </p>
+                    <div class="text-xs text-amber-300/80 font-medium pt-2">
+                        Inside-Out Leadership • Awareness • Commitment • Evolution
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-sand-300 mb-4">Exploration</h4>
+                    <ul class="space-y-2.5 text-xs text-sand-300/70">
+                        <li><button onclick="navigateTo('home')" class="hover:text-white transition-colors">The Invisible Gap</button></li>
+                        <li><button onclick="navigateTo('framework')" class="hover:text-white transition-colors">ACE Framework</button></li>
+                        <li><button onclick="navigateTo('audit')" class="hover:text-white transition-colors">Founder Reality Mirror</button></li>
+                        <li><button onclick="navigateTo('audit')" class="hover:text-white transition-colors">Friction Cost Calculator</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:text-white transition-colors">About Sandeep</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Principles -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-sand-300 mb-4">Core Thesis</h4>
+                    <p class="text-xs text-sand-300/70 leading-relaxed italic">
+                        “You cannot scale a company on compliance. Sustainable scale requires trust, and trust begins with how the founder shows up.”
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-charcoal-800">
+                        <button onclick="navigateTo('contact')" class="text-xs text-amber-300 font-semibold hover:underline">
+                            Request Private Consultation &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-sand-300/50">
+                <p>&copy; 2026 LeadWithSandeep. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Designed for thoughtful founders who value substance over spectacle.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation & Business Logic Script -->
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            updateCalculator();
+        });
+
+        // Simple Sound Feedback with Web Audio API (Optional UI polish)
+        function playSoftTone() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(360, ctx.currentTime);
+                gain.gain.setValueAtTime(0.04, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.15);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.16);
+            } catch (e) {
+                // Audio not supported or blocked, fail silently
+            }
+        }
+
+        // Multi-page navigation emulation
+        function navigateTo(pageId) {
+            playSoftTone();
+            
+            // Hide all views
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => {
+                view.classList.remove('active');
+            });
+
+            // Target view
+            const target = document.getElementById(`view-${pageId}`);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update active state in nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                if (item.getAttribute('data-page') === pageId) {
+                    item.classList.add('text-sage-800', 'bg-sand-100', 'font-semibold');
+                    item.classList.remove('text-charcoal-800');
+                } else {
+                    item.classList.remove('text-sage-800', 'bg-sand-100', 'font-semibold');
+                    item.classList.add('text-charcoal-800');
+                }
+            });
+
+            // Scroll smoothly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Re-render icons if dynamically revealed
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 50);
+        }
+
+        // Mobile drawer toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const bars = document.getElementById('menu-icon-bars');
+            const close = document.getElementById('menu-icon-close');
+            
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                bars.classList.add('hidden');
+                close.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+                bars.classList.remove('hidden');
+                close.classList.add('hidden');
+            }
+        }
+
+        // Diagnostic Mirror Calculator
+        function calculateAudit() {
+            playSoftTone();
+            const q1 = parseInt(document.querySelector('input[name="q1"]:checked')?.value || '0');
+            const q2 = parseInt(document.querySelector('input[name="q2"]:checked')?.value || '0');
+            const q3 = parseInt(document.querySelector('input[name="q3"]:checked')?.value || '0');
+
+            const score = q1 + q2 + q3;
+            const resultBox = document.getElementById('audit-result-box');
+            const titleEl = document.getElementById('audit-result-title');
+            const descEl = document.getElementById('audit-result-desc');
+            const iconContainer = document.getElementById('audit-icon-container');
+
+            resultBox.classList.remove('hidden');
+
+            if (score <= 1) {
+                titleEl.innerText = "Healthy Psychological Safety Baseline";
+                descEl.innerText = "Your team shows healthy signs of safety, independent initiative, and constructive honesty. As you scale from 20 to 50+, the priority will be protecting this baseline without drifting into default micro-control.";
+                iconContainer.className = "p-3 rounded-full bg-sage-800 text-white";
+            } else if (score <= 3) {
+                titleEl.innerText = "Moderate Compliance Drift & Hidden Hesitation";
+                descEl.innerText = "Your team is executing respectfully, but there is an emerging reliance on your validation. People have begun self-censoring in meetings to keep the peace, causing silent delays in execution and founder fatigue.";
+                iconContainer.className = "p-3 rounded-full bg-amber-600 text-white";
+            } else {
+                titleEl.innerText = "High Friction: The Fear & Micromanagement Trap";
+                descEl.innerText = "A pronounced disconnect is present. Your team is functioning in defensive compliance mode to avoid blame, while you are burdened with double-checking every task. This cycle cannot scale and will inevitably trigger key talent churn.";
+                iconContainer.className = "p-3 rounded-full bg-terracotta-600 text-white";
+            }
+
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            lucide.createIcons();
+        }
+
+        // Live Friction Cost Calculator
+        function updateCalculator() {
+            const teamSize = parseFloat(document.getElementById('calc-team-size').value) || 10;
+            const avgSalary = parseFloat(document.getElementById('calc-avg-salary').value) || 3000;
+            const founderHours = parseFloat(document.getElementById('calc-founder-hours').value) || 3;
+
+            // Estimation formulas:
+            // 1. Team waiting / hesitation friction (12% of payroll)
+            const teamHesitationMonthly = (teamSize * avgSalary) * 0.12;
+
+            // 2. Founder time friction: Founder opportunity cost valued at $150/hr
+            // founderHours spent on low-level firefighting * 22 working days * $120 net opportunity loss
+            const founderTimeMonthly = (founderHours * 22 * 120);
+
+            const totalAnnualFriction = Math.round((teamHesitationMonthly + founderTimeMonthly) * 12);
+
+            const formatted = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(totalAnnualFriction);
+
+            document.getElementById('calc-annual-cost').innerText = formatted;
+        }
+
+        // Handle Contact Form Submission
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            playSoftTone();
+            
+            const form = document.getElementById('contact-form');
+            const successState = document.getElementById('contact-success-state');
+
+            form.classList.add('hidden');
+            successState.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function resetContactForm() {
+            const form = document.getElementById('contact-form');
+            const successState = document.getElementById('contact-success-state');
+            form.reset();
+            form.classList.remove('hidden');
+            successState.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme 1 (Default): Executive Midnight Navy & Warm Cognac / Amber */
+:root,
+[data-theme="navy-cognac"] {
+  --c-bg: #fcfbfa;
+  --c-card: #ffffff;
+  --c-subtle: #f4f2ee;
+  --c-border: #e6e2da;
+  --c-text-900: #141a24;
+  --c-text-700: #3a4250;
+  --c-text-500: #6b7588;
+
+  --c-brand-50: #f1f4f9;
+  --c-brand-100: #e2e8f2;
+  --c-brand-200: #c6d3e5;
+  --c-brand-700: #1e2e46;
+  --c-brand-800: #142033;
+  --c-brand-900: #0b1320;
+
+  --c-accent-400: #e2944b;
+  --c-accent-500: #c97323;
+  --c-accent-600: #b05c14;
+  --c-accent-700: #8a440a;
+}
+
+/* Theme 2: Minimalist Warm Charcoal & Terracotta */
+[data-theme="charcoal-terracotta"] {
+  --c-bg: #fbf9f7;
+  --c-card: #ffffff;
+  --c-subtle: #f3efe9;
+  --c-border: #e7dfd4;
+  --c-text-900: #1f2024;
+  --c-text-700: #42444c;
+  --c-text-500: #717582;
+
+  --c-brand-50: #f5f4f6;
+  --c-brand-100: #e9e8eb;
+  --c-brand-200: #d4d2d9;
+  --c-brand-700: #32333b;
+  --c-brand-800: #222329;
+  --c-brand-900: #14151a;
+
+  --c-accent-400: #f07e60;
+  --c-accent-500: #d65a38;
+  --c-accent-600: #b94524;
+  --c-accent-700: #933116;
+}
+
+/* Theme 3: Deep Royal Indigo & Gold Bronze */
+[data-theme="royal-bronze"] {
+  --c-bg: #f9fafc;
+  --c-card: #ffffff;
+  --c-subtle: #edf1f7;
+  --c-border: #dbe2ee;
+  --c-text-900: #0d172a;
+  --c-text-700: #334155;
+  --c-text-500: #64748b;
+
+  --c-brand-50: #eef2ff;
+  --c-brand-100: #e0e7ff;
+  --c-brand-200: #c7d2fe;
+  --c-brand-700: #283578;
+  --c-brand-800: #1e295d;
+  --c-brand-900: #12193b;
+
+  --c-accent-400: #eab308;
+  --c-accent-500: #ca8a04;
+  --c-accent-600: #a16207;
+  --c-accent-700: #854d0e;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text-900);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.editorial-quote {
+  position: relative;
+}
+
+.editorial-quote::before {
+  content: "“";
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  position: absolute;
+  left: -2rem;
+  top: -2.5rem;
+  opacity: 0.15;
+  color: var(--c-accent-600);
+  line-height: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-brand-200);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-accent-600);
+}
